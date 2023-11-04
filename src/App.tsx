@@ -2,6 +2,8 @@ import React from "react";
 import { Product } from "./components/product";
 import { Brand } from "./components/brands";
 import { CartProduct } from "./components/cartProducts";
+import { GoCart } from "./components/goCart";
+import { GoMain } from "./components/goMain";
 
 import "./App.css";
 
@@ -18,11 +20,17 @@ function App() {
             <header className="header">
                 <div className="header-container">
                     <div className="header-logo">
-                        <img className="header-logo__img" src={logo} alt="" />
-                        <h1 className="header-logo__title">STRIO</h1>
+                        <button onClick={GoMain}>
+                            <img
+                                className="header-logo__img"
+                                src={logo}
+                                alt=""
+                            />
+                            <h1 className="header-logo__title">STRIO</h1>
+                        </button>
                     </div>
                     <div className="header-cart">
-                        <button>
+                        <button onClick={GoCart}>
                             <div className="header-cart__counter">0</div>
                             <img
                                 className="header-cart__img"
@@ -54,23 +62,22 @@ function App() {
                     </div>
                 </div>
             </main>
-            <footer className="footer">
-                <div className="cart-container">
-                    <div className="cart__title">
-                        <h2>Shopping Cart</h2>
-                    </div>
-                    <div className="cart__subtitle">
-                        <span className="subtitle__item">Item</span>
-                        <span className="subtitle__item">Price</span>
-                        <span className="subtitle__item">Qty</span>
-                        <span className="subtitle__item">Total</span>
-                    </div>
-                    <div className="cart__list">
-                        <CartProduct cartProducts={cartProducts} />
-                        <button className="cart__checkout">Checkout</button>
-                    </div>
+            <div className="cart-container hidden">
+                <div className="cart__title">
+                    <h2>Shopping Cart</h2>
                 </div>
-            </footer>
+                <div className="cart__subtitle">
+                    <span className="subtitle__item">Item</span>
+                    <span className="subtitle__item">Price</span>
+                    <span className="subtitle__item">Qty</span>
+                    <span className="subtitle__item">Total</span>
+                </div>
+                <div className="cart__list">
+                    <CartProduct cartProducts={cartProducts} />
+                    <button className="cart__checkout">Checkout</button>
+                </div>
+            </div>
+            <footer className="footer"></footer>
         </>
     );
 }

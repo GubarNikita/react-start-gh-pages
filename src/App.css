@@ -16,7 +16,7 @@ body {
     justify-content: space-between;
     margin: 20px;
 }
-.header-logo {
+.header-logo button {
     width: 300px;
     display: flex;
     align-items: center;
@@ -212,10 +212,10 @@ body {
     border: 2px solid #2bc4f3;
     border-radius: 10px;
 }
-/* .footer {
+.footer {
     height: 40px;
     background-color: #c5c6c7;
-} */
+}
 
 .hidden {
     display: none;
