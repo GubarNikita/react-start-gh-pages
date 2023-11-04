@@ -4,7 +4,7 @@ export const products: IProduct[] = [
     {
         id: 1,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -13,7 +13,7 @@ export const products: IProduct[] = [
     {
         id: 2,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -22,7 +22,7 @@ export const products: IProduct[] = [
     {
         id: 3,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -31,7 +31,7 @@ export const products: IProduct[] = [
     {
         id: 4,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -40,7 +40,7 @@ export const products: IProduct[] = [
     {
         id: 5,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -49,7 +49,7 @@ export const products: IProduct[] = [
     {
         id: 6,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -58,7 +58,7 @@ export const products: IProduct[] = [
     {
         id: 7,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -67,7 +67,7 @@ export const products: IProduct[] = [
     {
         id: 8,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -76,7 +76,7 @@ export const products: IProduct[] = [
     {
         id: 9,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -85,7 +85,7 @@ export const products: IProduct[] = [
     {
         id: 10,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -94,7 +94,7 @@ export const products: IProduct[] = [
     {
         id: 11,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -103,7 +103,7 @@ export const products: IProduct[] = [
     {
         id: 12,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -112,7 +112,7 @@ export const products: IProduct[] = [
     {
         id: 13,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -121,7 +121,7 @@ export const products: IProduct[] = [
     {
         id: 14,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand 4",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -130,7 +130,7 @@ export const products: IProduct[] = [
     {
         id: 15,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand 3",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -139,7 +139,7 @@ export const products: IProduct[] = [
     {
         id: 16,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand 2",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -148,7 +148,7 @@ export const products: IProduct[] = [
     {
         id: 17,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
-        price: 22.3,
+        price: 22,
         description: "Slim-fitting style",
         brand: "brand 1",
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",

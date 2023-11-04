@@ -1,15 +1,16 @@
 import React from "react";
 import { Product } from "./components/product";
 import { Brand } from "./components/brands";
+import { CartProduct } from "./components/cartProducts";
 
 import "./App.css";
 
 import logo from "./images/logo.png";
 import shoppingCart from "./images/shopping-cart.png";
-import tShirt from "./images/T-shirt.jpg";
 
 import { brands } from "./data/brands";
 import { products } from "./data/products";
+import { cartProducts } from "./data/cartProducts";
 
 function App() {
     return (
@@ -33,7 +34,7 @@ function App() {
                 </div>
                 <hr className="header-line" />
             </header>
-            <main className="main hidden">
+            <main className="main ">
                 <div className="main-container">
                     <div className="main-brands">
                         <div className="main-brands__title">
@@ -65,35 +66,7 @@ function App() {
                         <span className="subtitle__item">Total</span>
                     </div>
                     <div className="cart__list">
-                        <div className="cart__item">
-                            <div className="cart__item-container">
-                                <div className="cart__item-element">
-                                    <div>
-                                        <img src={tShirt} alt="" />
-                                    </div>
-                                    <div className="cart__item-brand">
-                                        Brand
-                                    </div>
-                                    <div className="cart__item-name">
-                                        Item name
-                                    </div>
-                                </div>
-                                <div className="cart__item-price">$56</div>
-                                <div className="cart__item-counter">
-                                    <input
-                                        type="number"
-                                        className="cart__item-counter__val"
-                                        value={1}
-                                    />
-                                </div>
-                                <div className="cart__item-totalPrice">$56</div>
-                                <button className="cart__button-delete">
-                                    del
-                                </button>
-                            </div>
-                            <hr />
-                        </div>
-                        <div className="cart__subtotal">Subtotal: $355</div>
+                        <CartProduct cartProducts={cartProducts} />
                         <button className="cart__checkout">Checkout</button>
                     </div>
                 </div>
