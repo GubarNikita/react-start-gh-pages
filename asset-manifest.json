@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-start-gh-pages/static/css/main.f50caab8.css",
+    "main.js": "/react-start-gh-pages/static/js/main.aa54cba5.js",
+    "static/media/shopping-cart.png": "/react-start-gh-pages/static/media/shopping-cart.3c34aee62c02b14d289e.png",
+    "static/media/logo.png": "/react-start-gh-pages/static/media/logo.16e81a899ef827b44306.png",
+    "index.html": "/react-start-gh-pages/index.html",
+    "main.f50caab8.css.map": "/react-start-gh-pages/static/css/main.f50caab8.css.map",
+    "main.aa54cba5.js.map": "/react-start-gh-pages/static/js/main.aa54cba5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f50caab8.css",
+    "static/js/main.aa54cba5.js"
+  ]
+}
