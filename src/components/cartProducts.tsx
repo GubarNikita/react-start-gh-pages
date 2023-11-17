@@ -6,90 +6,6 @@ interface ProductsProps {
 }
 
 export function CartProduct({ cartProducts }: ProductsProps) {
-    // cart__item-counter
-
-    const Subtotal = () => {
-        const subtotal = document.querySelector(
-            ".cart__subtotal"
-        ) as HTMLDivElement;
-        const colTotalPrice = document.querySelectorAll(
-            ".cart__item-totalPrice"
-        );
-
-        let sum = 0;
-
-        colTotalPrice.forEach((item) => {
-            if (item.textContent) {
-                const priceText = item.textContent;
-                const priceInt = parseInt(priceText.replace("$", ""));
-                if (!isNaN(priceInt)) {
-                    sum += priceInt;
-                }
-            }
-        });
-
-        subtotal.textContent = `Subtotal: $${sum.toString()}`;
-    };
-    const CounterMines = (event: React.MouseEvent<HTMLButtonElement>) => {
-        const clickedButton = event.target as HTMLButtonElement;
-        const parDiv = clickedButton.closest(".cart__item-container");
-
-        const counterCart = parDiv?.querySelector(
-            ".cart__item-counter__val"
-        ) as HTMLInputElement;
-
-        const totalPriceItem = parDiv?.querySelector(
-            ".cart__item-totalPrice"
-        ) as HTMLDivElement;
-        const priceItem = parDiv?.querySelector(
-            ".cart__item-price"
-        ) as HTMLDivElement;
-
-        let value = parseInt(counterCart.value);
-        if (value > 1) {
-            value--;
-            counterCart.value = value.toString();
-
-            let priceText = priceItem.textContent;
-
-            if (priceText) {
-                let priceInt = parseInt(priceText.replace("$", ""));
-                let priceValue = priceInt * value;
-                totalPriceItem.textContent = `$${priceValue.toString()}`;
-            }
-            Subtotal();
-        }
-    };
-
-    const CounterPlus = (event: React.MouseEvent<HTMLButtonElement>) => {
-        const clickedButton = event.target as HTMLButtonElement;
-        const parDiv = clickedButton.closest(".cart__item-container");
-
-        const counterCart = parDiv?.querySelector(
-            ".cart__item-counter__val"
-        ) as HTMLInputElement;
-
-        const totalPriceItem = parDiv?.querySelector(
-            ".cart__item-totalPrice"
-        ) as HTMLDivElement;
-        const priceItem = parDiv?.querySelector(
-            ".cart__item-price"
-        ) as HTMLDivElement;
-
-        let value = parseInt(counterCart.value);
-        value++;
-        counterCart.value = value.toString();
-
-        let priceText = priceItem.textContent;
-
-        if (priceText) {
-            let priceInt = parseInt(priceText.replace("$", ""));
-            let priceValue = priceInt * value;
-            totalPriceItem.textContent = `$${priceValue.toString()}`;
-        }
-        Subtotal();
-    };
-
     return (
         <>
             {cartProducts.map((product) => (
@@ -116,12 +32,8 @@ export function CartProduct({ cartProducts }: ProductsProps) {
                                 max={10}
                                 disabled
                             />
-                            <button id="incrementButton" onClick={CounterPlus}>
-                                Увеличить
-                            </button>
-                            <button id="decrementButton" onClick={CounterMines}>
-                                Уменьшить
-                            </button>
+                            <button id="incrementButton">Увеличить</button>
+                            <button id="decrementButton">Уменьшить</button>
                         </div>
                         <div className="cart__item-totalPrice">
                             ${product.price}

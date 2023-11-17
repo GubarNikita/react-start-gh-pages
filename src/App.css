@@ -16,14 +16,14 @@ body {
     justify-content: space-between;
     margin: 20px;
 }
-.header-logo button {
-    width: 300px;
+.header-logo a {
     display: flex;
     align-items: center;
 }
 
 .header-logo__img {
-    width: 20%;
+    width: 60px;
+    height: 60px;
 }
 .header-logo__title {
     font-family: "Mitr", sans-serif;

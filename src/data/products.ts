@@ -1,6 +1,6 @@
 import { IProduct } from "../models";
 
-export const products: IProduct[] = [
+export const productsData: IProduct[] = [
     {
         id: 1,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
