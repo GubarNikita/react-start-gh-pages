@@ -1,6 +1,5 @@
 import React from "react";
-import { CartProduct } from "../components/cartProducts";
-import { getCartProducts } from "../data/cartProducts";
+import { CartComponent } from "../components/cartProducts";
 
 export function Cart() {
     return (
@@ -16,7 +15,7 @@ export function Cart() {
                     <span className="subtitle__item">Total</span>
                 </div>
                 <div className="cart__list">
-                    <CartProduct cartProducts={getCartProducts()} />
+                    <CartComponent />
                     <button className="cart__checkout">Checkout</button>
                 </div>
             </div>

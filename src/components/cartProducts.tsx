@@ -1,49 +1,101 @@
-import React from "react";
+import React, { useState } from "react";
 import { IProduct } from "../models";
+import { getCartProducts, removeFromCart } from "../data/cartProducts";
 
 interface ProductsProps {
-    cartProducts: IProduct[];
+    cartProduct: IProduct;
+    subtotal: number;
+    setSubtotal: (newTotalPrice: number) => void;
 }
 
-export function CartProduct({ cartProducts }: ProductsProps) {
+const CartProduct = ({ cartProduct, subtotal, setSubtotal }: ProductsProps) => {
+    const [counterValue, setCounterValue] = useState(1);
+    const [totalPrice, setTotalPrice] = useState(cartProduct.price);
+
+    const handleIncrement = () => {
+        setCounterValue(counterValue + 1);
+        const newTotalPrice = totalPrice + cartProduct.price;
+        setTotalPrice(newTotalPrice);
+        setSubtotal(subtotal + cartProduct.price);
+    };
+
+    const handleDecrement = () => {
+        if (counterValue > 1) {
+            setCounterValue(counterValue - 1);
+            const newTotalPrice = totalPrice - cartProduct.price;
+            setTotalPrice(newTotalPrice);
+            setSubtotal(subtotal - cartProduct.price);
+        }
+    };
+
+    const handleRemove = () => {
+        removeFromCart(cartProduct.id);
+        setSubtotal(subtotal - totalPrice);
+    };
+
     return (
         <>
-            {cartProducts.map((product) => (
-                <div key={product.id} className="cart__item">
-                    <div className="cart__item-container">
-                        <div className="cart__item-element">
-                            <div>
-                                <img src={product.image} alt="" />
-                            </div>
-                            <div className="cart__item-brand">
-                                {product.brand}
-                            </div>
-                            <div className="cart__item-name">
-                                {product.title}
-                            </div>
+            <div key={cartProduct.id} className="cart__item">
+                <div className="cart__item-container">
+                    <div className="cart__item-element">
+                        <div>
+                            <img src={cartProduct.image} alt="" />
                         </div>
-                        <div className="cart__item-price">${product.price}</div>
-                        <div className="cart__item-counter">
-                            <input
-                                type="text"
-                                className="cart__item-counter__val"
-                                min={1}
-                                value="1"
-                                max={10}
-                                disabled
-                            />
-                            <button id="incrementButton">Увеличить</button>
-                            <button id="decrementButton">Уменьшить</button>
+                        <div className="cart__item-brand">
+                            {cartProduct.brand}
                         </div>
-                        <div className="cart__item-totalPrice">
-                            ${product.price}
+                        <div className="cart__item-name">
+                            {cartProduct.title}
                         </div>
-                        <button className="cart__button-delete">del</button>
                     </div>
-                    <hr />
+                    <div className="cart__item-price">${cartProduct.price}</div>
+                    <div className="cart__item-counter">
+                        <input
+                            type="text"
+                            className="cart__item-counter__val"
+                            min={1}
+                            value={counterValue}
+                            max={10}
+                            disabled
+                        />
+                        <button onClick={handleIncrement} id="incrementButton">
+                            Увеличить
+                        </button>
+                        <button onClick={handleDecrement} id="decrementButton">
+                            Уменьшить
+                        </button>
+                    </div>
+                    <div className="cart__item-totalPrice">${totalPrice}</div>
+                    <button
+                        className="cart__button-delete"
+                        onClick={handleRemove}
+                    >
+                        del
+                    </button>
                 </div>
+                <hr />
+            </div>
+        </>
+    );
+};
+
+export function CartComponent() {
+    let CartProducts = getCartProducts();
+    const [subtotal, setSubtotal] = useState(
+        CartProducts.reduce((acc, product) => acc + product.price, 0)
+    );
+
+    return (
+        <>
+            {CartProducts.map((product) => (
+                <CartProduct
+                    key={product.id}
+                    cartProduct={product}
+                    subtotal={subtotal}
+                    setSubtotal={setSubtotal}
+                />
             ))}
-            <div className="cart__subtotal">Subtotal: $</div>
+            <div className="cart__subtotal">Итого: ${subtotal}</div>
         </>
     );
 }

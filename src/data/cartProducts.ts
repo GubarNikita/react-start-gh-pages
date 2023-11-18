@@ -14,6 +14,11 @@ export const addToCart = (product: IProduct) => {
     return cartProducts;
 };
 
+export const removeFromCart = (productId: number) => {
+    cartProducts = cartProducts.filter((product) => product.id !== productId);
+    return cartProducts;
+};
+
 export const getCartProducts = () => {
     return cartProducts;
 };

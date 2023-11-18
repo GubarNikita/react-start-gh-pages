@@ -1,9 +1,7 @@
 import React from "react";
 
-import { YourComponent } from "../components/product";
-import { Brand } from "../components/brands";
-
-import { brands } from "../data/brands";
+import { ProductList } from "../components/product";
+import { BrandList } from "../components/brands";
 
 export function Home() {
     return (
@@ -15,7 +13,7 @@ export function Home() {
                             <h3>Brands</h3>
                         </div>
                         <div className="main-brands-list">
-                            <Brand brands={brands} />
+                            <BrandList />
                         </div>
                     </div>
                     <div className="main-catalog">
@@ -23,7 +21,7 @@ export function Home() {
                             <h2>Catalog</h2>
                         </div>
                         <div className="main-catalog__list">
-                            <YourComponent />
+                            <ProductList />
                         </div>
                     </div>
                 </div>

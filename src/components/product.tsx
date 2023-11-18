@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IProduct } from "../models";
 import { addToCart } from "../data/cartProducts";
-import { productsData } from "../data/products";
+import { getFilteredProducts } from "../data/currentProducts";
 
 interface ProductsProps {
     product: IProduct;
@@ -11,9 +11,7 @@ const Product = ({ product }: ProductsProps) => {
     const [isAddedToCart, setIsAddedToCart] = useState(false);
 
     const buttonAddToCart = () => {
-        let cartProducts: IProduct[] = addToCart(product);
-        console.log(cartProducts);
-
+        addToCart(product);
         setIsAddedToCart(true);
     };
 
@@ -36,7 +34,10 @@ const Product = ({ product }: ProductsProps) => {
     );
 };
 
-export function YourComponent() {
+export function ProductList() {
+    let productsData = getFilteredProducts();
+    console.log(productsData);
+
     return (
         <>
             {productsData.map((product) => (
