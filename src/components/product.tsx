@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { IProduct } from "../models";
-import { addToCart } from "../data/cartProducts";
-import { getFilteredProducts } from "../data/currentProducts";
+// import { addToCart } from "../data/cartProducts";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { addToCart } from "../store/SliceCart";
 
 interface ProductsProps {
     product: IProduct;
@@ -9,9 +10,10 @@ interface ProductsProps {
 
 const Product = ({ product }: ProductsProps) => {
     const [isAddedToCart, setIsAddedToCart] = useState(false);
+    const dispatch = useAppDispatch();
 
     const buttonAddToCart = () => {
-        addToCart(product);
+        dispatch(addToCart({ product }));
         setIsAddedToCart(true);
     };
 
@@ -35,12 +37,11 @@ const Product = ({ product }: ProductsProps) => {
 };
 
 export function ProductList() {
-    let productsData = getFilteredProducts();
-    console.log(productsData);
+    const products = useAppSelector((state) => state.shop.products);
 
     return (
         <>
-            {productsData.map((product) => (
+            {products.map((product) => (
                 <Product key={product.id} product={product} />
             ))}
         </>

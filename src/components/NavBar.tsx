@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 
 import logo from "../images/logo.png";
 import shoppingCart from "../images/shopping-cart.png";
+import { useAppSelector } from "../hooks";
 
 export const NavBar = () => {
+    const cartCounter = useAppSelector((state) => state.cart.cartCounter);
     return (
         <Navbar expand="md">
             <Container>
@@ -30,7 +32,7 @@ export const NavBar = () => {
                                 <button>
                                     <Link to="/cart">
                                         <div className="header-cart__counter">
-                                            0
+                                            {cartCounter}
                                         </div>
                                         <img
                                             className="header-cart__img"

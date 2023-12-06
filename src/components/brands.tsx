@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { IBrand } from "../models";
 import { brands } from "../data/brands";
-import { filterProductsByBrand } from "../data/currentProducts";
+import { useAppDispatch } from "../hooks";
+import { filterProducts } from "../store/SliceSortProducts";
 
 export function BrandList() {
     const [selectedBrand, setSelectedBrand] = useState<IBrand | null>(null);
+    const dispatch = useAppDispatch();
 
     const handleBrandClick = (brand: IBrand) => {
         setSelectedBrand((prevSelectedBrand) =>
             prevSelectedBrand === brand ? null : brand
         );
-        filterProductsByBrand(brand.title);
+        dispatch(filterProducts({ brand }));
     };
 
     return (

@@ -1,36 +1,38 @@
 import React, { useState } from "react";
 import { IProduct } from "../models";
-import { getCartProducts, removeFromCart } from "../data/cartProducts";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { removeFromCart, updateSubtotal } from "../store/SliceCart";
 
 interface ProductsProps {
     cartProduct: IProduct;
-    subtotal: number;
-    setSubtotal: (newTotalPrice: number) => void;
 }
 
-const CartProduct = ({ cartProduct, subtotal, setSubtotal }: ProductsProps) => {
+const CartProduct = ({ cartProduct }: ProductsProps) => {
     const [counterValue, setCounterValue] = useState(1);
     const [totalPrice, setTotalPrice] = useState(cartProduct.price);
+    const dispatch = useAppDispatch();
 
     const handleIncrement = () => {
-        setCounterValue(counterValue + 1);
-        const newTotalPrice = totalPrice + cartProduct.price;
-        setTotalPrice(newTotalPrice);
-        setSubtotal(subtotal + cartProduct.price);
+        setCounterValue((prev) => prev + 1);
+        setTotalPrice((prev) => prev + cartProduct.price);
+
+        dispatch(updateSubtotal({ product: cartProduct, increment: true }));
     };
 
     const handleDecrement = () => {
         if (counterValue > 1) {
-            setCounterValue(counterValue - 1);
-            const newTotalPrice = totalPrice - cartProduct.price;
-            setTotalPrice(newTotalPrice);
-            setSubtotal(subtotal - cartProduct.price);
+            setCounterValue((prev) => prev - 1);
+            setTotalPrice((prev) => prev - cartProduct.price);
+            dispatch(
+                updateSubtotal({ product: cartProduct, increment: false })
+            );
         }
     };
 
     const handleRemove = () => {
-        removeFromCart(cartProduct.id);
-        setSubtotal(subtotal - totalPrice);
+        dispatch(
+            removeFromCart({ product: cartProduct, totalPrice: totalPrice })
+        );
     };
 
     return (
@@ -80,20 +82,12 @@ const CartProduct = ({ cartProduct, subtotal, setSubtotal }: ProductsProps) => {
 };
 
 export function CartComponent() {
-    let CartProducts = getCartProducts();
-    const [subtotal, setSubtotal] = useState(
-        CartProducts.reduce((acc, product) => acc + product.price, 0)
-    );
-
+    const cartProducts = useAppSelector((state) => state.cart.cartProducts);
+    const subtotal = useAppSelector((state) => state.cart.subtotal);
     return (
         <>
-            {CartProducts.map((product) => (
-                <CartProduct
-                    key={product.id}
-                    cartProduct={product}
-                    subtotal={subtotal}
-                    setSubtotal={setSubtotal}
-                />
+            {cartProducts.map((product) => (
+                <CartProduct key={product.id} cartProduct={product} />
             ))}
             <div className="cart__subtotal">Итого: ${subtotal}</div>
         </>
